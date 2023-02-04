@@ -83,4 +83,69 @@ class BookInfoManager
     end
 
     
+    # 蔵書データの一覧を表示する
+    def listAllBookInfos
+        puts "\n----------------"
+        @book_infos.each{|key, info|
+            print info.toFormattedString
+            puts "\n----------------"
+        }
+    end
+
+    # 蔵書データを全件ファイルへ書き込んで保存する
+    def saveAllBookInfos
+        #CSVファイルを書き込みモードでオープンする
+        open(@csv_fname, "w"){|file|
+            @book_infos.each{|key, info|
+                file.print(info.to_csv(key))
+            }# 1行ずつの処理の終わり
+            puts "\nファイルへ保存しました"
+        }# ファイルを閉じている
+    end
+
+    # 処理の選択と選択後の処理を繰り返す
+    def run
+        while true
+            # 機能選択画面を表示する
+            print "
+                1. 蔵書データの登録
+                2. 蔵書データの表示
+                8. 蔵書データをファイルへ保存
+                9. 終了
+                番号を選んでください(1, 2, 8, 9) :"
+
+                #文字の入力を待つ
+                num = gets.chomp
+                case 
+                when "1" == num
+                    #蔵書データの登録
+                    addBookInfo
+                when "2" == num
+                    #蔵書データの表示
+                    listAllBookInfos
+                when "8" == num
+                    #蔵書データをファイルへ保存
+                    saveAllBookInfos
+                when "9" == num
+                    break;
+                else
+                    #処理待ち画面に戻る
+                end
+        end
+    end
+        
+end
+
+
+# ここからがアプリケーションを動かす本体
+
+# アプリケーションのインスタンスを作る
+# 蔵書データのCSVファイルを指定している
+book_info_manager = BookInfoManager.new("book_info.csv")
+
+# BookInfoManagerの蔵書データをセットアップする
+book_info_manager.setUp
+
+# BookInfoManagerの処理の選択と選択後の処理を繰り返す
+book_info_manager.run
 
