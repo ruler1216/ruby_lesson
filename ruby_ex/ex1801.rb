@@ -43,7 +43,7 @@ class BookInfoManager
     # 蔵書データをセットアップする
     def setUp
         # csvファイルを読み込みモードでオープンする
-        open(@csv_name, "r"){|file|
+        open(@csv_fname, "r"){|file|
         # ファイルの行を1行ずつ取り出して、lineに読み込む
         file.each{|line|
             # lineからchompで改行を除き、splitでカンマ区切りに分割し
@@ -69,7 +69,7 @@ class BookInfoManager
         print "著者名: "
         book_info.author = gets.chomp
         print "ページ数: "
-        book_info.page = gets.chomp
+        book_info.page = gets.chomp.to_i
         print "発刊年: "
         year = gets.chomp.to_i
         print "発刊月: "
