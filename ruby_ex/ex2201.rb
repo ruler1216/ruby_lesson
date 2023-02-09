@@ -1,4 +1,3 @@
-#encoding:utf-8
 require 'rubygems' #RubyGemsでインストールしたときには記述
 require 'dbi' #DBIを使う
 require 'date'
