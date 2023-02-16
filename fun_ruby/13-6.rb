@@ -5,7 +5,7 @@ ary = (1..100).to_a
 result = Array.new
 # 数え上げメソッドtimesは0から順に入る
 10.times do |i|
-    result << ary[i*10, 10]
+    result << ary[i * 10..9 + i * 10]
 end
 
 # 配列resultの出力のためにpメソッドを使用
