@@ -1,0 +1,27 @@
+-- テーブルの作成
+create table users(id integer, name text);
+
+-- デーブルの削除
+drop table users;
+
+-- データの作成
+insert into users(id, name) values(1, '山田太郎');
+insert into users(id, name) values(2, '鈴木一郎');
+insert into users(id, name) values(3, '鈴木次郎');
+
+-- データ参照結果にカラム名を表示する
+.headers on
+.mode column
+
+-- データの参照
+select name from users;
+select * from users;
+select * from users where id = 1;
+
+-- データの更新
+update users set name = '山田次郎' where id = 1;
+select * from users where id = 1;
+
+-- データの削除
+delete from users where id = 1;
+select * from users;
