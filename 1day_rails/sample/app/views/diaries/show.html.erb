@@ -1,10 +1,30 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-<%= render @diary %>
+<p>
+  <strong>ID:</strong>
+  <%= @diary.id %>
+</p>
 
-<div>
-  <%= link_to "Edit this diary", edit_diary_path(@diary) %> |
-  <%= link_to "Back to diaries", diaries_path %>
+<p>
+  <strong>タイトル:</strong>
+  <%= @diary.title %>
+</p>
 
-  <%= button_to "Destroy this diary", @diary, method: :delete %>
-</div>
+<p>
+  <strong>本文:</strong>
+  <%= @diary.body %>
+</p>
+
+<p>
+  <strong>登録日時:</strong>
+  <%= @diary.created_at %>
+</p>
+
+<p>
+  <strong>更新日時:</strong>
+  <%= @diary.updated_at %>
+</p>
+
+<%= link_to '編集', edit_diary_path(@diary) %> |
+<%= link_to '削除', @diary, method: :delete, data: {cofirm: '本当に削除しますか?'} %> |
+<%= link_to '一覧に戻る', diaries_path %>
