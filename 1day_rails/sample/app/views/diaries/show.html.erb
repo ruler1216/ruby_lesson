@@ -26,5 +26,5 @@
 </p>
 
 <%= link_to '編集', edit_diary_path(@diary) %> |
-<%= link_to '削除', @diary, method: :delete, data: {cofirm: '本当に削除しますか?'} %> |
+<%= link_to '削除', @diary, data: {turbo_method: :delete, turbo_confirm: '本当に削除しますか?'} %> |
 <%= link_to '一覧に戻る', diaries_path %>
