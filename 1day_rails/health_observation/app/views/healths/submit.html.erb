@@ -20,5 +20,17 @@
         </tr>
     </table>
     <hr>
+            <%= form.radio_button :commute, 1 %><%= form.label :commute, "登校", value: 1%>
+            <%= form.radio_button :commute, 2 %><%= form.label :commute, "遅刻", value: 2%>
+            <%= form.radio_button :commute, 3 %><%= form.label :commute, "欠席", value: 3%>
+    <table>
+        <tr>
+            <% # 初期値は右寄せが必要 %>
+            <td>測定した体温</td><td><%= form.text_field :temperature, value: "度"%></td>
+        </tr>
+        <tr>
+            <td>その他</td><td><%= form.text_area :etc %></td>
+        </tr>
+    </table>
     <%= form.submit %>
 <% end %>
