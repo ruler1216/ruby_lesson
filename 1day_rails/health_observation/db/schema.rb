@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_04_060458) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_04_163029) do
   create_table "healths", force: :cascade do |t|
-    t.integer "year"
-    t.integer "school_class"
-    t.integer "class_number"
+    t.string "year"
+    t.string "school_class"
+    t.string "class_number"
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "commute"
     t.string "temperature"
     t.text "etc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
