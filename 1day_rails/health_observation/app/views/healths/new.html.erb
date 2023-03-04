@@ -1,5 +1,5 @@
 <h1>健康観察アプリ</h1>
-
+<%= link_to "ホーム画面に戻る", "/healths" %>|<%= link_to "検索を行う", "/healths/show" %>
 <% # コントローラーで生成されたインスタンスメソッド@healthにデータを付与 %>
 <%= form_with(model: @health, local: true) do |form| %>
     <table>
