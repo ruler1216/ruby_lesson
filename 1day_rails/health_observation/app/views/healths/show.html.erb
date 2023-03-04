@@ -1,2 +1,48 @@
 <h1>検索条件(全体検索)</h1>
 <%= link_to "ホーム画面に戻る", "/healths" %>|<%= link_to "本日分の送信を行う", "/healths/new" %>
+<% # 検索フォームの作成 %>
+<%= search_form_for(@q, url: "/healths/show",local:true) do |f|%>
+<table>
+        <tr>
+            <td><%= f.label :year_eq, "学年" %></td><td><%= form.select :year_eq, [["1年",1], ["2年",2], ["3年",3]],{include_blank: '選択してください'} %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :school_class_eq, "組" %></td><td><%= form.select :school_class_eq, [["A組",1], ["B組",2], ["C組",3],["D組",4], ["E組",5], ["F組",6],["G組",7], ["H組",8], ["I組",9]],{include_blank: '選択してください'} %></td>
+        </tr>
+        <tr>
+            <td><%= f.label :created_at_cont, "日付" %></td><td><%= form.text_field :created_at_cont, {include_blank: '入力して下さい'} %></td></td>
+        </tr>
+        <tr>
+            <td><%= form.radio_button :commute_eq, 1 %><%= form.label :commute_eq, "登校", value: 1%></td>
+            <td><%= form.radio_button :commute_eq, 2 %><%= form.label :commute_eq, "遅刻", value: 2%></td>
+            <td><%= form.radio_button :commute_eq, 3 %><%= form.label :commute_eq, "欠席", value: 3%></td>
+        </tr>
+</table>
+<br>
+<%= f.submit "検索" %>
+<hr>
+<br>
+<table>
+    <tr>
+        <th><%= sort_link(@q, :year, "学年") %></th>
+        <th><%= sort_link(@q, :school_class, "組") %></th>
+        <th><%= sort_link(@q, :class_number, "出席番号",default_order: :asc) %></th>
+        <th><%= sort_link(@q, :name, "名前") %></th>
+        <th><%= sort_link(@q, :created_at, "送信日時") %></th>
+        <th><%= sort_link(@q, :commute, "出席") %></th>
+        <th><%= sort_link(@q, :temperature, "体温") %></th>
+        <th><%= sort_link(@q, :etc, "その他") %></th>
+    </tr>
+    <% @health.each do |health| %>
+    <tr>
+        <td><%= health.year%></td>
+        <td><%= health.school_class%></td>
+        <td><%= health.class_number%></td>
+        <td><%= health.name%></td>
+        <td><%= health.created_at%></td>
+        <td><%= health.commute%></td>
+        <td><%= health.temperature%></td>
+        <td><%= health.etc%></td>
+    </tr>
+</table>
+<% end %>
