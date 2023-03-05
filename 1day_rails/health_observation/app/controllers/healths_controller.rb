@@ -1,6 +1,11 @@
 class HealthsController < ApplicationController
   before_action :set_q
+  def top
+  end
+
   def index
+    @health=Health.all
+    @results=@q.result
   end
 
   def show
@@ -10,6 +15,7 @@ class HealthsController < ApplicationController
 
   def new
     @health=Health.new
+    @date=Date.today
   end
 
   def create

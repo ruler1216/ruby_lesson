@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_05_075521) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_05_151200) do
   create_table "healths", force: :cascade do |t|
     t.string "year"
     t.string "school_class"
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_05_075521) do
     t.text "etc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "save_time"
   end
 
 end

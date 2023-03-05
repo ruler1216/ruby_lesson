@@ -1,6 +1,6 @@
 <h1>検索条件(全体検索)</h1>
-<% require 'date'%>
-<%= link_to "ホーム画面に戻る", "/healths" %>|<%= link_to "本日分の送信を行う", "/healths/new" %>
+<% require "date" %>
+<%= link_to "ホーム画面に戻る", "/healths" %>|<%= link_to "データ送信を行う", "/healths/new" %>|<%= link_to "個別検索を行う", "/healths/index" %>
 <br>
 <% # 検索フォームの作成 %>
 <%= search_form_for @q,url: "/healths/show", local: true do |f| %>
@@ -12,7 +12,7 @@
             <td><%= f.label :school_class_eq, "組" %></td><td><%= f.select :school_class_eq, [["A組","A組"], ["B組","B組"], ["C組","C組"],["D組","D組"], ["E組","E組"], ["F組","F組"],["G組","G組"], ["H組","H組"], ["I組",9]],{include_blank: '選択してください'} %></td>
         </tr>
         <tr>
-            <td><%= f.label :created_at_cont, "日付" %></td><td><%= f.text_field :created_at_cont, {include_blank: '入力して下さい'} %></td>
+            <td><%= f.label :created_at_cont, "日付" %></td><td><%= f.text_field :created_at_cont, {include_blank: '選択して下さい'} %></td>
         </tr>
 </table>
 <%= f.radio_button :commute_eq, "登校" %><%= f.label :commute_eq, "登校", value: "登校"%>
@@ -23,7 +23,7 @@
 <% end %>
 <hr>
 <br>
-<h2>検索結果</h2>
+<h2>検索結果(全体)</h2>
 <table>
     <tr>
         <th><%= sort_link(@q, :year, "学年") %></th>

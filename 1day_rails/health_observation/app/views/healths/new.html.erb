@@ -1,5 +1,6 @@
 <h1>健康観察アプリ</h1>
-<%= link_to "ホーム画面に戻る", "/healths" %>|<%= link_to "検索を行う", "/healths/show" %>
+<% require "date" %>
+<%= link_to "ホーム画面に戻る", "/healths" %>|<%= link_to "全体検索を行う", "/healths/show" %>|<%= link_to "個別検索を行う", "/healths/index"%>
 <% # コントローラーで生成されたインスタンスメソッド@healthにデータを付与 %>
 <%= form_with(model: @health, local: true) do |form| %>
     <table>
@@ -18,6 +19,9 @@
         <tr>
             <td>氏名(入力必須)</td><td><%= form.text_field :name, {include_blank: '入力して下さい'} %></td></td>
         </tr>
+        <tr>
+            <td><% form.text_area :save_time,value: "#{@date.strftime("%Y-%m-%d")}" %></td>
+        <tr>
     </table>
     <hr>
             <%= form.radio_button :commute, "登校" %><%= form.label :commute, "登校", value: "登校"%>
