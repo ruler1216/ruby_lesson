@@ -1,10 +1,11 @@
 class HealthsController < ApplicationController
-  before_action :set_q, only: [:show, :search]
+  before_action :set_q
   def index
   end
 
   def show
     @health=Health.all
+    @results=@q.result
   end
 
   def new
