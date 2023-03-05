@@ -20,7 +20,7 @@
             <td>氏名(入力必須)</td><td><%= form.text_field :name, {include_blank: '入力して下さい'} %></td></td>
         </tr>
         <tr>
-            <td><% form.text_area :save_time,value: "#{@date.strftime("%Y-%m-%d")}" %></td>
+            <td><% form.text_area :save_time,value: @date.strftime("%Y-%m-%d") %></td>
         <tr>
     </table>
     <hr>
