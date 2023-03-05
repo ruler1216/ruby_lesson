@@ -4,10 +4,10 @@
 <%= form_with(model: @health, local: true) do |form| %>
     <table>
         <tr>
-            <td>学年(選択必須)</td><td><%= form.select :year, [["1年",1], ["2年",2], ["3年",3]],{include_blank: '選択してください'} %></td>
+            <td>学年(選択必須)</td><td><%= form.select :year, [["1年","1年"], ["2年","2年"], ["3年","3年"]],{include_blank: '選択してください'} %></td>
         </tr>
         <tr>
-            <td>組(選択必須)</td><td><%= form.select :school_class, [["A組",1], ["B組",2], ["C組",3],["D組",4], ["E組",5], ["F組",6],["G組",7], ["H組",8], ["I組",9]],{include_blank: '選択してください'} %></td>
+            <td>組(選択必須)</td><td><%= form.select :school_class, [["A組","A組"], ["B組","B組"], ["C組","C組"],["D組","D組"], ["E組","E組"], ["F組","F組"],["G組","G組"], ["H組","H組"], ["I組","I組"]],{include_blank: '選択してください'} %></td>
         </tr>
         <tr>
             <td>出席番号(選択必須)</td><td><%= form.select :class_number, [["1番",1], ["2番",2], ["3番",3],["4番",4], ["5番",5], ["6番",6],["7番",7], ["8番",8], ["9番",9],["10番",10],
@@ -20,9 +20,9 @@
         </tr>
     </table>
     <hr>
-            <%= form.radio_button :commute, 1 %><%= form.label :commute, "登校", value: 1%>
-            <%= form.radio_button :commute, 2 %><%= form.label :commute, "遅刻", value: 2%>
-            <%= form.radio_button :commute, 3 %><%= form.label :commute, "欠席", value: 3%>
+            <%= form.radio_button :commute, "登校" %><%= form.label :commute, "登校", value: "登校"%>
+            <%= form.radio_button :commute, "遅刻" %><%= form.label :commute, "遅刻", value: "遅刻"%>
+            <%= form.radio_button :commute, "欠席" %><%= form.label :commute, "欠席", value: "欠席"%>
     <table>
         <tr>
             <% # 初期値は右寄せが必要 %>

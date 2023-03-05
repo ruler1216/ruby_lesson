@@ -1,22 +1,23 @@
 <h1>検索条件(全体検索)</h1>
+<% require 'date'%>
 <%= link_to "ホーム画面に戻る", "/healths" %>|<%= link_to "本日分の送信を行う", "/healths/new" %>
 <br>
 <% # 検索フォームの作成 %>
 <%= search_form_for @q,url: "/healths/show", local: true do |f| %>
 <table>
         <tr>
-            <td><%= f.label :year_eq, "学年" %></td><td><%= f.select :year_eq, [["1年",1], ["2年",2], ["3年",3]], include_blank:"選択してください。" %></td>
+            <td><%= f.label :year_eq, "学年" %></td><td><%= f.select :year_eq, [["1年","1年"], ["2年","2年"], ["3年","3年"]], include_blank:"選択してください。" %></td>
         </tr>
         <tr>
-            <td><%= f.label :school_class_eq, "組" %></td><td><%= f.select :school_class_eq, [["A組",1], ["B組",2], ["C組",3],["D組",4], ["E組",5], ["F組",6],["G組",7], ["H組",8], ["I組",9]],{include_blank: '選択してください'} %></td>
+            <td><%= f.label :school_class_eq, "組" %></td><td><%= f.select :school_class_eq, [["A組","A組"], ["B組","B組"], ["C組","C組"],["D組","D組"], ["E組","E組"], ["F組","F組"],["G組","G組"], ["H組","H組"], ["I組",9]],{include_blank: '選択してください'} %></td>
         </tr>
         <tr>
             <td><%= f.label :created_at_cont, "日付" %></td><td><%= f.text_field :created_at_cont, {include_blank: '入力して下さい'} %></td>
         </tr>
 </table>
-<%= f.radio_button :commute_eq, 1 %><%= f.label :commute_eq, "登校", value: 1%>
-<%= f.radio_button :commute_eq, 2 %><%= f.label :commute_eq, "遅刻", value: 2%>
-<%= f.radio_button :commute_eq, 3 %><%= f.label :commute_eq, "欠席", value: 3%>
+<%= f.radio_button :commute_eq, "登校" %><%= f.label :commute_eq, "登校", value: "登校"%>
+<%= f.radio_button :commute_eq, "遅刻" %><%= f.label :commute_eq, "遅刻", value: "遅刻"%>
+<%= f.radio_button :commute_eq, "欠席" %><%= f.label :commute_eq, "欠席", value: "欠席"%>
 <br>
 <%= f.submit "検索" %>
 <% end %>
@@ -34,14 +35,14 @@
         <th><%= sort_link(@q, :temperature, "体温") %></th>
         <th><%= sort_link(@q, :etc, "その他") %></th>
     </tr>
-    <% if @result.present? %>
-    <% @result.each do |result| %>
+    <% if @results.present? %>
+    <% @results.each do |result| %>
     <tr>
         <td><%= result.year%></td>
         <td><%= result.school_class%></td>
         <td><%= result.class_number%></td>
         <td><%= result.name%></td>
-        <td><%= result.created_at%></td>
+        <td><%= result.created_at.strftime("%Y-%m-%d %H:%M")%></td>
         <td><%= result.commute%></td>
         <td><%= result.temperature%></td>
         <td><%= result.etc%></td>
