@@ -19,9 +19,6 @@
         <tr>
             <td>氏名(入力必須)</td><td><%= form.text_field :name, {include_blank: '入力して下さい'} %></td></td>
         </tr>
-        <tr>
-            
-        <tr>
     </table>
     <hr>
             <%= form.radio_button :commute, "登校" %><%= form.label :commute, "登校", value: "登校"%>
@@ -30,7 +27,7 @@
     <table>
         <tr>
             <% # 初期値は右寄せが必要 %>
-            <td>測定した体温</td><td><%= form.text_field :temperature, value: "度"%></td>
+            <td>測定した体温</td><td><%= form.text_field :temperature %>度</td>
         </tr>
         <tr>
             <td>その他</td><td><%= form.text_area :etc %></td>

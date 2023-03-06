@@ -3,7 +3,7 @@
 <%= link_to "ホーム画面に戻る", "/healths" %>|<%= link_to "データ送信を行う", "/healths/new" %>|<%= link_to "全体検索を行う", "/healths/show" %>
 <br>
 <% # 検索フォームの作成 %>
-<%= search_form_for @q,url: "/healths/show", local: true do |f| %>
+<%= search_form_for @q,url: "/healths/index", local: true do |f| %>
 <table>
         <tr>
             <td><%= f.label :year_eq, "学年" %></td><td><%= f.select :year_eq, [["1年","1年"], ["2年","2年"], ["3年","3年"]], include_blank:"選択してください。" %></td>
@@ -18,7 +18,7 @@
                                                                     ["31番",31], ["32番",32], ["33番",33],["34番",34], ["35番",35], ["36番",36],["37番",37], ["38番",38], ["39番",39],["40番",40],],{include_blank: '入力して下さい'} %></td>
         </tr>
         <tr>
-            <td><%= f.label :save_time_cont, "日付" %></td><td><%= f.text_field :save_time_cont, value: "2023-03-05" %></td>
+            <td><%= f.label :save_time_cont, "日付(mm-dd形式で指定)" %></td><td><%= f.text_field :save_time_cont %></td>
         </tr>
 </table>
 <%= f.radio_button :commute_eq, "登校" %><%= f.label :commute_eq, "登校", value: "登校"%>

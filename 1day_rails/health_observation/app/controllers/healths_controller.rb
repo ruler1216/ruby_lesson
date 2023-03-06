@@ -22,8 +22,11 @@ class HealthsController < ApplicationController
     @health=Health.new(health_params)
     @date=Date.today
     @health.save_time=@date.strftime("%Y-%m-%d")
-    @health.save!
-    redirect_to(healths_url, notice: "送信を完了しました。")
+    if @health.save
+      redirect_to(healths_url, notice: "送信を完了しました。")
+    else
+      render :new
+    end
   end
 
   def search

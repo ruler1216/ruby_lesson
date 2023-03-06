@@ -12,7 +12,7 @@
             <td><%= f.label :school_class_eq, "組" %></td><td><%= f.select :school_class_eq, [["A組","A組"], ["B組","B組"], ["C組","C組"],["D組","D組"], ["E組","E組"], ["F組","F組"],["G組","G組"], ["H組","H組"], ["I組",9]],{include_blank: '選択してください'} %></td>
         </tr>
         <tr>
-            <td><%= f.label :created_at_cont, "日付" %></td><td><%= f.text_field :created_at_cont, {include_blank: '選択して下さい'} %></td>
+            <td><%= f.label :save_time_cont, "日付(mm-dd形式で指定)" %></td><td><%= f.text_field :save_time_cont %></td>
         </tr>
 </table>
 <%= f.radio_button :commute_eq, "登校" %><%= f.label :commute_eq, "登校", value: "登校"%>
@@ -30,7 +30,7 @@
         <th><%= sort_link(@q, :school_class, "組") %></th>
         <th><%= sort_link(@q, :class_number, "出席番号",default_order: :asc) %></th>
         <th><%= sort_link(@q, :name, "名前") %></th>
-        <th><%= sort_link(@q, :created_at, "送信日時") %></th>
+        <th><%= sort_link(@q, :save_time, "送信日時") %></th>
         <th><%= sort_link(@q, :commute, "出席") %></th>
         <th><%= sort_link(@q, :temperature, "体温") %></th>
         <th><%= sort_link(@q, :etc, "その他") %></th>
@@ -42,7 +42,7 @@
         <td><%= result.school_class%></td>
         <td><%= result.class_number%></td>
         <td><%= result.name%></td>
-        <td><%= result.created_at.strftime("%Y-%m-%d %H:%M")%></td>
+        <td><%= result.save_time%></td>
         <td><%= result.commute%></td>
         <td><%= result.temperature%></td>
         <td><%= result.etc%></td>
