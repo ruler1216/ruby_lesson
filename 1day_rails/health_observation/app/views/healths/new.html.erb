@@ -1,6 +1,14 @@
 <h1>健康観察アプリ</h1>
 <% require "date" %>
 <%= link_to "ホーム画面に戻る", "/healths" %>|<%= link_to "全体検索を行う", "/healths/show" %>|<%= link_to "個別検索を行う", "/healths/index"%>
+<% #エラーメッセージの表示 %>
+<% if @health.errors.any? %>
+    <ul>
+        <% @health.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
 <% # コントローラーで生成されたインスタンスメソッド@healthにデータを付与 %>
 <%= form_with(model: @health, local: true) do |form| %>
     <table>
@@ -27,7 +35,7 @@
     <table>
         <tr>
             <% # 初期値は右寄せが必要 %>
-            <td>測定した体温</td><td><%= form.text_field :temperature %>度</td>
+            <td>測定した体温(半角)</td><td><%= form.text_field :temperature %>度</td>
         </tr>
         <tr>
             <td>その他</td><td><%= form.text_area :etc %></td>

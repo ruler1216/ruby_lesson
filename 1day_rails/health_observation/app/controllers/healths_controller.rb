@@ -25,7 +25,7 @@ class HealthsController < ApplicationController
     if @health.save
       redirect_to(healths_url, notice: "送信を完了しました。")
     else
-      render :new
+      render "healths/new"
     end
   end
 
