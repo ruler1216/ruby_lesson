@@ -3,7 +3,7 @@
 <%= link_to "ホーム画面に戻る", "/healths" %>|<%= link_to "全体検索を行う", "/healths/show" %>|<%= link_to "個別検索を行う", "/healths/index"%>
 <% # コントローラーで生成されたインスタンスメソッド@healthにデータを付与 %>
 <%= form_with model: @health, local: true do |form| %>   
-    <%= render "shared/error_messages", model: form.object%> 
+    <%= render "shared/error_messages"%> 
     <table>
         <tr>
             <td>学年(選択必須)</td><td><%= form.select :year, [["1年","1年"], ["2年","2年"], ["3年","3年"]],{include_blank: '選択してください'} %></td>
@@ -27,7 +27,6 @@
             <%= form.radio_button :commute, "欠席" %><%= form.label :commute, "欠席", value: "欠席"%>
     <table>
         <tr>
-            <% # 初期値は右寄せが必要 %>
             <td>測定した体温(半角)</td><td><%= form.text_field :temperature %>度</td>
         </tr>
         <tr>
