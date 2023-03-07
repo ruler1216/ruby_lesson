@@ -1,0 +1,8 @@
+<% #エラーメッセージの表示 %>
+<% if @health.errors.any? %>
+    <ul>
+        <% @health.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>

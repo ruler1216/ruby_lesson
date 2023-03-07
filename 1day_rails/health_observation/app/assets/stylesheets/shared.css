@@ -1,0 +1,47 @@
+.l-accordion input {
+    display: none;
+  }
+  
+  .l-accordion .l-accordion-inside {
+    border: 2px solid #555;
+    height: 0;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  
+  .l-accordion input:checked~.l-accordion-inside {
+    height: auto;
+    opacity: 1;
+  }
+  
+  .l-accordion .l-accordion-switch {
+    position: relative;
+    display: block;
+    background-color: #e7e7e7;
+    font-weight: bold;
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .l-accordion .l-accordion-switch::before,
+  .l-accordion .l-accordion-switch::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 14px;
+    height: 3px;
+    background: #555;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+  
+  .l-accordion .l-accordion-switch::after {
+    transform: translateY(-50%) rotate(90deg);
+    transition: 0.5s;
+  }
+  
+  .l-accordion input:checked~.l-accordion-switch::after {
+    transform: rotate(0);
+    transition: 0.5s;
+  }
