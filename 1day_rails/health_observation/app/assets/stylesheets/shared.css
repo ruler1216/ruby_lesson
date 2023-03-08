@@ -18,6 +18,10 @@
   display: contents;
 }
 
+.btn-center {
+  text-align: center;
+}
+
 .btn-square-emboss {
   position: relative;
   display: inline-block;
@@ -34,4 +38,108 @@
 .btn-square-emboss:active {
   /*押したとき*/
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.box_con02 {
+  max-width: 900px;
+  margin: 0  auto;
+}
+@media only screen and (max-width: 768px) {
+  .box_con02 {
+    width: 95%;
+  }
+}
+.box_con02 table {
+  width: 100%;
+}
+.box_con02 table tr {
+  position: relative;
+}
+.box_con02 table tr:first-child td:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 1px;
+  border-bottom: solid 1px rgba(28, 46, 83, 0.5);
+}
+@media only screen and (max-width: 768px) {
+  .box_con02 table tr:first-child td:before {
+    display: none;
+  }
+}
+.box_con02 table tr th {
+  width: 30%;
+  font-weight: normal;
+  padding: 1em .5em;
+  background: #1c2e53;
+  color: #fff;
+  position: relative;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 768px) {
+  .box_con02 table tr th {
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: .8em .2em;
+  }
+}
+.box_con02 table tr th span {
+  background: #cd6f55;
+  padding: 0 .3em;
+  color: #fff;
+  margin-left: .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.box_con02 table tr th:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  border-bottom: solid 1px #fff;
+}
+.box_con02 table tr td {
+  position: relative;
+  padding: 1em .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 768px) {
+  .box_con02 table tr td {
+    padding: 1.5em .5em;
+    display: block;
+    width: 100%;
+  }
+}
+.box_con02 table tr td:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  border-bottom: solid 1px rgba(28, 46, 83, 0.5);
+}
+.box_con02 table tr .box_br {
+  display: block;
+}
+.box_con02 table tr select, .box_con02 table tr textarea, .box_con02 table tr .wide {
+  width: 100%;
+  height: 3em;
+  padding: .5em;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.box_con02 table tr textarea {
+  height: 10em;
 }
