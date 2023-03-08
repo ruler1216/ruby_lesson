@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      health:
+    attributes:
+      health:
+        year: 学年
+        school_class: 組
+        class_number: 出席番号
+        name: 氏名
+        commute: 登校するか
+        temperature: 測定した体温(半角)
