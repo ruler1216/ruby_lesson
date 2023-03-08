@@ -21,7 +21,7 @@
                                                                     ["31番",31], ["32番",32], ["33番",33],["34番",34], ["35番",35], ["36番",36],["37番",37], ["38番",38], ["39番",39],["40番",40],],{include_blank: '選択してください'} %></div></td>
         </tr>
         <tr>
-            <th>氏名<span>必須</span></th><td><div class="wide"><%= form.text_field :name, {include_blank: '入力して下さい'} %></div></td>
+            <th>氏名<span>必須</span></th><td><%= form.text_field :name, {:size=>"70", include_blank: '入力して下さい'} %></td>
         </tr>
         <tr>
             <th>登校の確認</th>
@@ -38,7 +38,7 @@
             </td>
         </tr>
         <tr>
-            <th>測定した体温<span>半角入力必須</span></th><td><div class="wide"><%= form.text_field :temperature %>度</div></td>
+            <th>測定した体温<span>半角入力必須</span></th><td><div class="wide"><%= form.text_field :temperature, {:size=>"65"} %>度</div></td>
         </tr>
         <tr>
             <th>その他</th><td><%= form.text_area :etc, cols: "50", rows: "5" %></td>
