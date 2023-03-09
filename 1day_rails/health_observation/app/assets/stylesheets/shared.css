@@ -143,3 +143,48 @@
 .box_con02 table tr textarea {
   height: 10em;
 }
+.btn {
+  color: #fff;
+  background: #ffce5b;
+  padding: .3em .5em;
+  border-radius: .3em;
+  text-align: center;
+  display: table;
+  cursor: pinter;
+}
+.btn:hover {
+  cursor: pinter;
+}
+.btn:active {
+  background: #f4d600;
+}
+.box {
+  
+}
+/* close button */
+.action-close {
+  position: relative;
+  margin-top: 2em;
+}
+.action-close .btn {
+  position: absolute;
+  right: 0;
+  top: -1em;
+}
+.action-close .box{
+  margin-bottom: 2em;
+  border: 2px solid #ffce5b;
+}
+
+/* checkbox 非表示 */
+.add-control .checkbox {
+  display: none;
+}
+
+/* close button's control */
+.add-control .action-close #close:checked ~ .btn {
+  display: none;
+}
+.add-control .action-close #close:checked ~ .box {
+  display: none;
+}

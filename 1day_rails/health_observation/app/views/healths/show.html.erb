@@ -39,6 +39,10 @@
 <br>
 <h2>検索結果(全体)</h2>
 <hr>
+<div class="add-control">
+    <div class="action-close">
+      <input type="checkbox" class="checkbox" id="close" name="close" /><label for="close" class="btn">閉じる</label>
+      <div class="box">
 <table class="table">
     <tr>
         <th class="th"><%= sort_link(@q, :year, "学年") %></th>
@@ -71,3 +75,6 @@
         </tr>
     </table>
 <% end %>
+</div>
+    </div>
+  </div>
