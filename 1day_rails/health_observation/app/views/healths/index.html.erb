@@ -4,34 +4,47 @@
 <br>
 <% # 検索フォームの作成 %>
 <%= search_form_for @q,url: "/healths/index", local: true do |f| %>
-<table>
+<div class="box_con02">
+<table class="formTable">
         <tr>
-            <td><%= f.label :year_eq, "学年" %></td><td><%= f.select :year_eq, [["1年","1年"], ["2年","2年"], ["3年","3年"]], include_blank:"選択してください。" %></td>
+            <th><%= f.label :year_eq, "学年" %></th><td><div class="wide"><%= f.select :year_eq, [["1年","1年"], ["2年","2年"], ["3年","3年"]], include_blank:"選択してください。" %></div></td>
         </tr>
         <tr>
-            <td><%= f.label :school_class_eq, "組" %></td><td><%= f.select :school_class_eq, [["A組","A組"], ["B組","B組"], ["C組","C組"],["D組","D組"], ["E組","E組"], ["F組","F組"],["G組","G組"], ["H組","H組"], ["I組",9]],{include_blank: '選択してください'} %></td>
+            <th><%= f.label :school_class_eq, "組" %></th><td><div class="wide"><%= f.select :school_class_eq, [["A組","A組"], ["B組","B組"], ["C組","C組"],["D組","D組"], ["E組","E組"], ["F組","F組"],["G組","G組"], ["H組","H組"], ["I組",9]],{include_blank: '選択してください'} %></div></td>
         </tr>
         <tr>
-            <td><%= f.label :class_number_eq, "出席番号" %></td><td><%= f.select :class_number_eq, [["1番",1], ["2番",2], ["3番",3],["4番",4], ["5番",5], ["6番",6],["7番",7], ["8番",8], ["9番",9],["10番",10],
+            <th><%= f.label :class_number_eq, "出席番号" %></th><td><div class="wide"><%= f.select :class_number_eq, [["1番",1], ["2番",2], ["3番",3],["4番",4], ["5番",5], ["6番",6],["7番",7], ["8番",8], ["9番",9],["10番",10],
                                                                     ["11番",11], ["12番",12], ["13番",13],["14番",14], ["15番",15], ["16番",16],["17番",17], ["18番",18], ["19番",19],["20番",20],
                                                                     ["21番",21], ["22番",22], ["23番",23],["24番",24], ["25番",25], ["26番",26],["27番",27], ["28番",28], ["29番",29],["30番",30],
-                                                                    ["31番",31], ["32番",32], ["33番",33],["34番",34], ["35番",35], ["36番",36],["37番",37], ["38番",38], ["39番",39],["40番",40],],{include_blank: '入力して下さい'} %></td>
+                                                                    ["31番",31], ["32番",32], ["33番",33],["34番",34], ["35番",35], ["36番",36],["37番",37], ["38番",38], ["39番",39],["40番",40],],{include_blank: '入力して下さい'} %></div></td>
         </tr>
         <tr>
-            <td><%= f.label :save_time_cont, "日付(mm-dd形式で指定)" %></td><td><%= f.text_field :save_time_cont %></td>
+            <th><%= f.label :save_time_cont, "日付" %><span>yyyy-mm-dd形式</span></th><td><%= f.text_field :save_time_cont, {:size=>"70",value: "#{Date.today.strftime("%Y-%m-%d")}"} %></td>
+        </tr>
+        <tr>
+            <th>登校の確認</th>
+            <td>
+            <div class="box_br">
+            <%= f.radio_button :commute_eq, "登校" %><%= f.label :commute_eq, "登校", value: "登校"%>
+            </div>
+            <div class="box_br">
+            <%= f.radio_button :commute_eq, "遅刻" %><%= f.label :commute_eq, "遅刻", value: "遅刻"%>
+            </div>
+            <div class="box_br">
+            <%= f.radio_button :commute_eq, "欠席" %><%= f.label :commute_eq, "欠席", value: "欠席"%>
+            </div>
+            </td>
         </tr>
 </table>
-<%= f.radio_button :commute_eq, "登校" %><%= f.label :commute_eq, "登校", value: "登校"%>
-<%= f.radio_button :commute_eq, "遅刻" %><%= f.label :commute_eq, "遅刻", value: "遅刻"%>
-<%= f.radio_button :commute_eq, "欠席" %><%= f.label :commute_eq, "欠席", value: "欠席"%>
+</div>
 <br>
 <div class="btn-center">
 <%= f.submit "検索", class: "btn-square-emboss"%>
 </div>
 <% end %>
-<hr>
 <br>
 <h2>検索結果(個別)</h2>
+<hr>
 <table class="table">
     <tr>
         <th class="th"><%= sort_link(@q, :year, "学年") %></th>

@@ -12,7 +12,7 @@
             <td><%= f.label :school_class_eq, "組" %></td><td><%= f.select :school_class_eq, [["A組","A組"], ["B組","B組"], ["C組","C組"],["D組","D組"], ["E組","E組"], ["F組","F組"],["G組","G組"], ["H組","H組"], ["I組",9]],{include_blank: '選択してください'} %></td>
         </tr>
         <tr>
-            <td><%= f.label :save_time_cont, "日付(mm-dd形式で指定)" %></td><td><%= f.text_field :save_time_cont %></td>
+            <td><%= f.label :save_time_cont, "日付(yyyy-mm-dd形式で指定)" %></td><td><%= f.text_field :save_time_cont, value: "#{Date.today.strftime("%Y-%m-%d")}" %></td>
         </tr>
 </table>
 <%= f.radio_button :commute_eq, "登校" %><%= f.label :commute_eq, "登校", value: "登校"%>
