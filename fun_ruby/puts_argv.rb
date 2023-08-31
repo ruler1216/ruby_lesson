@@ -1,5 +1,0 @@
-puts "最初の引数: #{ARGV[0]}"
-puts "最初の引数: #{ARGV[1]}"
-puts "最初の引数: #{ARGV[2]}"
-puts "最初の引数: #{ARGV[3]}"
-puts "最初の引数: #{ARGV[4]}"
